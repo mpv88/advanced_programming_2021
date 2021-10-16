@@ -62,7 +62,7 @@ int main() {
   // bit-wise operations
   int x = var & a;  // AND, 101 & 001 --> 001
   x = var | a;      // OR,  101 | 001 --> 101
-  x = var ^ a;      // XOR, 101 ^ 001 --> 110
+  x = var ^ a;      // XOR, 101 ^ 001 --> 100
 
   x &= a;
   x |= a;
