@@ -1,4 +1,4 @@
-/*
+/* c++ 01_Reverse_Order.cpp -o 01_Reverse_Order -Wall -Wextra -g -std=c++14
 - Write a program that reads from stdin the length of an array and then stores in it the numbers given from stdin. 
   The program should then print the numbers in **reverse order**. Remember to free the used memory properly. Divide the problem into two parts:
   1. Write one **template** function that allocates on the *heap* one array of a given size, initializes its elements, and returns the pointer to the first element.
@@ -15,39 +15,31 @@ Run `valgrind` on a **Linux**  system. Alternatively, compile and link your code
 #include <string>
 
 template <typename ia>
-ia* myinit(std::string input, std::size_t n);
+ia * init(const ia input[], std::size_t n)
+{ 
+  ia * ar{new ia[n]};
+  for (std::size_t i=0; i<n; i++)
+    *(ar+i) = *(input+i);
+  return ar;
+}
 
 template <typename rv>
-rv reverse(rv ar[], std::size_t n);
+void reverse(const rv * ar, std::size_t n)
+{ 
+  for (int i=n; i>=0; --i)
+    std::cout << ar[i] << std::endl;
+  delete[] ar;
+}
 
 int main ()
 {
   std::string input;
-  
-  std::size_t n;
-  std::cout << "Please insert vector: ";
+  std::size_t n{};
+  std::cout << "Please insert your integers on one line: ";
   std::getline(std::cin, input);
-  n = input.length();
-  auto ptr =myinit<int>(input, n);  
-  std::cout << reverse<int>(ptr, n) << std::endl;
+  n=input.length();
+  auto * ptr=init<char>(input.c_str(), n);  
+  reverse<char>(ptr, n);
   return 0;
 }
 
-template <typename ia>
-ia* myinit(std::string input, std::size_t n)
-{ 
-  ia* ar{new ia[n]};
-  for (std::size_t i{0}; i < n; i++) 
-    ar[i] = input[i];
-  return ar; 
-}
-
-template <typename rv>
-rv reverse(rv* ar, std::size_t n)
-{ 
-  std::string output;
-  for (std::size_t i=(n-1); i = 0; i--)
-      std::cout << ar(n+i);
-  delete[] ar;
-  return 0;
-}
