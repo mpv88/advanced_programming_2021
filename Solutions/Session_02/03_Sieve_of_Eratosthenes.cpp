@@ -52,9 +52,3 @@ int main()
   delete[] primes;
   return 0;
 }
-
-
-
-
-
-
