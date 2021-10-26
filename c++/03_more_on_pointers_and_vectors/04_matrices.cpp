@@ -16,7 +16,7 @@ int main() {
   for (int i = 0; i < 6; ++i)
     for (int j = 0; j < 5; ++j)
       ma[i][j] = 10 * i + j;
-
+      
   for (int i = 0; i < 6; ++i) {
     for (int j = 0; j < 5; ++j)
       std::cout << std::setw(3) << ma[i][j];
