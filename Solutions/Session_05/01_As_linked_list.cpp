@@ -35,6 +35,7 @@ The private member `head` points to the first element of the list.
 #include <iostream>
 #include <iterator>
 #include <memory>
+#include <vector>
 
 enum class method { push_back, push_front };
 
